@@ -12,8 +12,9 @@ struct ContentView: View {
     
     @State private var betAmount = 1
     @State private var icons = ["apple", "donut", "lemon"]
-    @State private var selectedIcons = [0,1,2]
+    @State private var selectedIcons = Array.init(repeating: 0, count: 9)
     @State private var credits = 1000
+    @State private var backgrounds = Array.init(repeating: Color.white, count: 9)
     
     var body: some View {
         ZStack {
@@ -35,7 +36,7 @@ struct ContentView: View {
                 HStack {
                     Image(systemName: "star.fill")
                         .foregroundColor(Color.yellow)
-                    Text("Slots")
+                    Text("Slots Mania")
                         .foregroundColor(Color.white)
                         .bold()
                     Image(systemName: "star.fill")
@@ -46,6 +47,7 @@ struct ContentView: View {
                 
                 //Credits
                 Text("Credits: " + String(credits))
+                    .fixedSize(horizontal: true, vertical: false)
                     .foregroundColor(Color.black)
                     .padding(.all, 10)
                     .background(Color.white.opacity(0.5))
@@ -54,15 +56,36 @@ struct ContentView: View {
                 Spacer()
                 
                 //Slots
-                HStack {
-                    Spacer()
-
-                    CardView(symbol: $icons[selectedIcons[0]])
-                    CardView(symbol: $icons[selectedIcons[1]])
-                    CardView(symbol: $icons[selectedIcons[2]])
+                
+                VStack {
+                    //Row 1
+                    HStack {
+                        Spacer()
+                        CardView(symbol: $icons[selectedIcons[0]], background: $backgrounds[0])
+                        CardView(symbol: $icons[selectedIcons[1]], background: $backgrounds[1])
+                        CardView(symbol: $icons[selectedIcons[2]], background: $backgrounds[2])
+                        Spacer()
+                    }
                     
-                    Spacer()
+                    //Row 2
+                    HStack {
+                        Spacer()
+                        CardView(symbol: $icons[selectedIcons[3]], background: $backgrounds[3])
+                        CardView(symbol: $icons[selectedIcons[4]], background: $backgrounds[4])
+                        CardView(symbol: $icons[selectedIcons[5]], background: $backgrounds[5])
+                        Spacer()
+                    }
+                    
+                    //Row 3
+                    HStack {
+                        Spacer()
+                        CardView(symbol: $icons[selectedIcons[6]], background: $backgrounds[6])
+                        CardView(symbol: $icons[selectedIcons[7]], background: $backgrounds[7])
+                        CardView(symbol: $icons[selectedIcons[8]], background: $backgrounds[8])
+                        Spacer()
+                    }
                 }
+                
                 
                 Spacer()
                 
@@ -71,45 +94,38 @@ struct ContentView: View {
                     Spacer()
                     
                     //Bet Amount
-                    HStack {
-                        Text(String(betAmount))
-                            .bold()
-                            .scaleEffect(1.5)
-                        Button(action: {
-                            self.betAmount += 1
-                        }) {
-                            Image(systemName: "arrow.up")
-                        }.scaleEffect(2.0).padding([.leading, .trailing], 20)
-                        
-                        Button(action: {
-                            self.betAmount -= 1
-                        }) {
-                            Image(systemName: "arrow.down")
-                        }.scaleEffect(2.0)
-                    }
+                    VStack {
+                        HStack {
+                            Button(action: {
+                                self.betAmount += 1
+                            }) {
+                                Image(systemName: "arrow.up")
+                            }.scaleEffect(2.0).padding(.trailing, 20)
+                            
+                            Button(action: {
+                                self.betAmount -= 1
+                            }) {
+                                Image(systemName: "arrow.down")
+                            }.scaleEffect(2.0).padding(.leading, 20)
+                        }
                         .padding(.all, 20)
+                        .padding([.leading, .trailing], 10)
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
-
+                        Text(String(betAmount) + " Credits")
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                    
+                    
                     
                     //Spin Button
                     Button(action: {
-                        
-                        //Change images
-                        self.credits -= self.betAmount
-                        for i in self.selectedIcons {
-                            self.selectedIcons[i] = Int.random(in: 0...self.icons.count-1)
-                        }
-                        
-                        //Check winnings
-                        if self.selectedIcons[0] == self.selectedIcons[1] && self.selectedIcons[1] == self.selectedIcons[2] {
-                            self.credits += self.betAmount * 10
-                        }
-                        
+                        self.processResults()
                     }) {
                         Text("Spin")
                             .bold()
-                            .padding(.all, 20)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.all, 30)
                             .padding([.leading, .trailing], 20)
                             .foregroundColor(Color.white)
                             .background(Color.pink)
@@ -120,6 +136,59 @@ struct ContentView: View {
                 
             }
         }
+    }
+    
+    func processResults () {
+        
+        func isMatch(_ index1 : Int, _ index2 : Int, _ index3 : Int) -> Bool {
+            
+            if self.selectedIcons[index1] == self.selectedIcons[index2] && self.selectedIcons[index2] == self.selectedIcons[index3] {
+                //Set backgrounds to green
+                self.backgrounds[index1] = Color.green
+                self.backgrounds[index2] = Color.green
+                self.backgrounds[index3] = Color.green
+                return true
+            }
+            
+            return false
+        }
+        
+        //Set backgrounds to white
+        self.backgrounds = self.backgrounds.map { _ in
+            Color.white
+        }
+        
+        //Randomize the images
+        self.selectedIcons = self.selectedIcons.map { _ in
+            Int.random(in: 0...self.icons.count-1)
+        }
+        
+        //Check winnings
+        var matches = 0
+        
+        //Top Row
+        if isMatch(0, 1, 2) { matches += 1 }
+        
+        //Middle Row
+        if isMatch(3, 4, 5) { matches += 1 }
+        
+        //Top Row
+        if isMatch(6, 7, 8) { matches += 1 }
+        
+        //Left Diagonal
+        if isMatch(0, 4, 8) { matches += 1 }
+        
+        //Right Diagonal
+        if isMatch(2, 4, 6) { matches += 1 }
+        
+        if matches > 0 {
+            self.credits += self.betAmount * matches * 2
+        }
+        else {
+            self.credits -= self.betAmount
+        }
+        
+        
     }
     
     struct ContentView_Previews: PreviewProvider {
