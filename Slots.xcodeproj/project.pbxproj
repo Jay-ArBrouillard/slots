@@ -10,11 +10,11 @@
 		A240DD3A24BA90D200EDDAE3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240DD3924BA90D200EDDAE3 /* AppDelegate.swift */; };
 		A240DD3C24BA90D200EDDAE3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240DD3B24BA90D200EDDAE3 /* SceneDelegate.swift */; };
 		A240DD3E24BA90D200EDDAE3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240DD3D24BA90D200EDDAE3 /* ContentView.swift */; };
-		A240DD4024BA90D500EDDAE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A240DD3F24BA90D500EDDAE3 /* Assets.xcassets */; };
 		A240DD4324BA90D500EDDAE3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A240DD4224BA90D500EDDAE3 /* Preview Assets.xcassets */; };
 		A240DD4624BA90D500EDDAE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A240DD4424BA90D500EDDAE3 /* LaunchScreen.storyboard */; };
 		A240DD5124BA90D500EDDAE3 /* SlotsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240DD5024BA90D500EDDAE3 /* SlotsTests.swift */; };
 		A240DD5C24BA90D500EDDAE3 /* SlotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240DD5B24BA90D500EDDAE3 /* SlotsUITests.swift */; };
+		A240DD6A24BAA18600EDDAE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A240DD6924BAA18600EDDAE3 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,7 +39,6 @@
 		A240DD3924BA90D200EDDAE3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A240DD3B24BA90D200EDDAE3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A240DD3D24BA90D200EDDAE3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A240DD3F24BA90D500EDDAE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A240DD4224BA90D500EDDAE3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A240DD4524BA90D500EDDAE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A240DD4724BA90D500EDDAE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		A240DD5724BA90D500EDDAE3 /* SlotsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SlotsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A240DD5B24BA90D500EDDAE3 /* SlotsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsUITests.swift; sourceTree = "<group>"; };
 		A240DD5D24BA90D500EDDAE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A240DD6924BAA18600EDDAE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 				A240DD3924BA90D200EDDAE3 /* AppDelegate.swift */,
 				A240DD3B24BA90D200EDDAE3 /* SceneDelegate.swift */,
 				A240DD3D24BA90D200EDDAE3 /* ContentView.swift */,
-				A240DD3F24BA90D500EDDAE3 /* Assets.xcassets */,
+				A240DD6924BAA18600EDDAE3 /* Assets.xcassets */,
 				A240DD4424BA90D500EDDAE3 /* LaunchScreen.storyboard */,
 				A240DD4724BA90D500EDDAE3 /* Info.plist */,
 				A240DD4124BA90D500EDDAE3 /* Preview Content */,
@@ -241,8 +241,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A240DD4624BA90D500EDDAE3 /* LaunchScreen.storyboard in Resources */,
+				A240DD6A24BAA18600EDDAE3 /* Assets.xcassets in Resources */,
 				A240DD4324BA90D500EDDAE3 /* Preview Assets.xcassets in Resources */,
-				A240DD4024BA90D500EDDAE3 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
