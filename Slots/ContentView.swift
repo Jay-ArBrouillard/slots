@@ -11,7 +11,7 @@ import SwiftUI
 struct ContentView: View {
     
     @State private var betAmount = 1
-    private var icons = ["apple", "donut", "lemon"]
+    @State private var icons = ["apple", "donut", "lemon"]
     @State private var selectedIcons = [0,1,2]
     @State private var credits = 1000
     
@@ -56,17 +56,10 @@ struct ContentView: View {
                 //Slots
                 HStack {
                     Spacer()
-                    Image(icons[selectedIcons[0]])
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(20)
-                    
-                    Image(icons[selectedIcons[1]])
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(20)
-                    
-                    Image(icons[selectedIcons[2]])
-                        .background(Color.white.opacity(0.5))
-                        .cornerRadius(20)
+
+                    CardView(symbol: $icons[selectedIcons[0]])
+                    CardView(symbol: $icons[selectedIcons[1]])
+                    CardView(symbol: $icons[selectedIcons[2]])
                     
                     Spacer()
                 }
