@@ -16,6 +16,8 @@
 		A240DD5C24BA90D500EDDAE3 /* SlotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240DD5B24BA90D500EDDAE3 /* SlotsUITests.swift */; };
 		A240DD6A24BAA18600EDDAE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A240DD6924BAA18600EDDAE3 /* Assets.xcassets */; };
 		A240DD6C24BB9D4B00EDDAE3 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A240DD6B24BB9D4B00EDDAE3 /* CardView.swift */; };
+		A240DD6E24BBD9EE00EDDAE3 /* SlotsMania.mov in Resources */ = {isa = PBXBuildFile; fileRef = A240DD6D24BBD9EE00EDDAE3 /* SlotsMania.mov */; };
+		A240DD7024BBDA0C00EDDAE3 /* SlotsMania.mov in Resources */ = {isa = PBXBuildFile; fileRef = A240DD6F24BBDA0C00EDDAE3 /* SlotsMania.mov */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		A240DD5D24BA90D500EDDAE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A240DD6924BAA18600EDDAE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../../../../.Trash/Assets.xcassets; sourceTree = "<group>"; };
 		A240DD6B24BB9D4B00EDDAE3 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		A240DD6D24BBD9EE00EDDAE3 /* SlotsMania.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = SlotsMania.mov; sourceTree = SOURCE_ROOT; };
+		A240DD6F24BBDA0C00EDDAE3 /* SlotsMania.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; name = SlotsMania.mov; path = ../../../../.Trash/SlotsMania.mov; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,8 @@
 				A240DD3D24BA90D200EDDAE3 /* ContentView.swift */,
 				A240DD6B24BB9D4B00EDDAE3 /* CardView.swift */,
 				A240DD6924BAA18600EDDAE3 /* Assets.xcassets */,
+				A240DD6D24BBD9EE00EDDAE3 /* SlotsMania.mov */,
+				A240DD6F24BBDA0C00EDDAE3 /* SlotsMania.mov */,
 				A240DD4424BA90D500EDDAE3 /* LaunchScreen.storyboard */,
 				A240DD4724BA90D500EDDAE3 /* Info.plist */,
 				A240DD4124BA90D500EDDAE3 /* Preview Content */,
@@ -244,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A240DD4624BA90D500EDDAE3 /* LaunchScreen.storyboard in Resources */,
+				A240DD6E24BBD9EE00EDDAE3 /* SlotsMania.mov in Resources */,
 				A240DD6A24BAA18600EDDAE3 /* Assets.xcassets in Resources */,
 				A240DD4324BA90D500EDDAE3 /* Preview Assets.xcassets in Resources */,
+				A240DD7024BBDA0C00EDDAE3 /* SlotsMania.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
