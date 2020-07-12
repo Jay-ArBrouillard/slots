@@ -10,6 +10,9 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var betAmount = 1
+    private var icons = ["apple", "donut", "lemon"]
+    @State private var selectedIcons = [0,1,2]
     @State private var credits = 1000
     
     var body: some View {
@@ -53,53 +56,78 @@ struct ContentView: View {
                 //Slots
                 HStack {
                     Spacer()
-                    Image("apple")
-                        .padding(.bottom)
+                    Image(icons[selectedIcons[0]])
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
-                        .multilineTextAlignment(.center)
                     
-                    Image("apple")
-                        .padding(.bottom)
+                    Image(icons[selectedIcons[1]])
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
-                        .multilineTextAlignment(.center)
                     
-                    Image("apple")
-                        .padding(.bottom)
+                    Image(icons[selectedIcons[2]])
                         .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
-                        .multilineTextAlignment(.center)
                     
                     Spacer()
                 }
                 
                 Spacer()
                 
-                //Spin Button
-                Button(action: {
-                    self.credits += 1
-                }) {
-                    Text("Spin")
-                        .bold()
-                        .padding(.all)
-                        .padding([.leading, .trailing], 20)
-                        .foregroundColor(Color.white)
-                        .background(Color.pink)
+                //Bets and Spin
+                HStack {
+                    Spacer()
+                    
+                    //Bet Amount
+                    HStack {
+                        Text(String(betAmount))
+                            .bold()
+                            .scaleEffect(1.5)
+                        Button(action: {
+                            self.betAmount += 1
+                        }) {
+                            Image(systemName: "arrow.up")
+                        }.scaleEffect(2.0).padding([.leading, .trailing], 20)
+                        
+                        Button(action: {
+                            self.betAmount -= 1
+                        }) {
+                            Image(systemName: "arrow.down")
+                        }.scaleEffect(2.0)
+                    }
+                        .padding(.all, 20)
+                        .background(Color.white.opacity(0.5))
                         .cornerRadius(20)
+
+                    
+                    //Spin Button
+                    Button(action: {
+                        
+                        //Change images
+                        self.credits -= self.betAmount
+                        for i in self.selectedIcons {
+                            self.selectedIcons[i] = Int.random(in: 0...self.icons.count-1)
+                        }
+                        
+                        //Check winnings
+                        if self.selectedIcons[0] == self.selectedIcons[1] && self.selectedIcons[1] == self.selectedIcons[2] {
+                            self.credits += self.betAmount * 10
+                        }
+                        
+                    }) {
+                        Text("Spin")
+                            .bold()
+                            .padding(.all, 20)
+                            .padding([.leading, .trailing], 20)
+                            .foregroundColor(Color.white)
+                            .background(Color.pink)
+                            .cornerRadius(20)
+                    }
+                    Spacer()
                 }
                 
-                Spacer()
-                
-                
             }
-            
-            
         }
-        
     }
-    
-    
     
     struct ContentView_Previews: PreviewProvider {
         static var previews: some View {
