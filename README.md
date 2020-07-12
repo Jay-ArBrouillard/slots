@@ -1,3 +1,3 @@
 # slots
 Slots Mobile App
-![](game.mov)
+![](SlotsManiaApp.mov)
