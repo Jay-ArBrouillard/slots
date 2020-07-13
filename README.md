@@ -1,3 +1,3 @@
 # slots
-Slots Mobile App
+Slots Mobile App 
 ![](SlotsMania.gif)
