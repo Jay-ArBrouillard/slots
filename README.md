@@ -1,3 +1,3 @@
 # slots
 Slots Mobile App 
-![](SlotsMania.gif)
+<img src="SlotsMania.gif" width="300" height="600"/>
